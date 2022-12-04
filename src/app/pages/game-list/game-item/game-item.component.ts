@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
-import Game from 'src/app/models/game';
+import Game from 'src/app/models/Game';
 
 @Component({
     selector: 'app-game-item',
@@ -15,5 +16,13 @@ export class GameItemComponent {
         multiplayer: false
     }
 
-    constructor() {  }
+    constructor(public datepipe: DatePipe){}
+
+    changeColor(): string {
+        return this.game?.multiplayer? "#00ffff": "";
+    }
+
+    formatDate() {
+        return this.datepipe.transform(this.game.releaseDate, 'dd/MM/yyyy');
+    }
 }

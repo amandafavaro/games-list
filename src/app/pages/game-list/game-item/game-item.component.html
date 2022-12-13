@@ -1,12 +1,14 @@
-<mat-expansion-panel hideToggle *ngIf="game" [ngStyle]="{ backgroundColor: changeColor() }">
+<mat-expansion-panel hideToggle *ngIf="game" [gameDirective]="game.installed">
     <mat-expansion-panel-header>
         <mat-panel-title>
-            {{ this.game.title }}
+            <mat-checkbox [checked]="game.installed" (change)="changeInstalled()" (click)="$event.stopPropagation()"></mat-checkbox>
+            {{ game.title }}
         </mat-panel-title>
     </mat-expansion-panel-header>
     <ul>
-        <li>Genre: {{ this.game.genre }}</li>
-        <li>Release date: {{ formatDate() }}</li>
-        <li>Multiplayer: {{ this.game.multiplayer }}</li>
+        <li>Genre: {{ game.genre }}</li>
+        <li>Release date: {{ game.releaseDate | date: "dd/MM/yyyy" }}</li>
+        <li>Multiplayer: {{ game.multiplayer | multiplayer }}</li>
+        <li>Installed: {{ game.installed | installed }}</li>
     </ul>
 </mat-expansion-panel>

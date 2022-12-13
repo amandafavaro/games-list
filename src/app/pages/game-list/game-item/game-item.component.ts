@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import Game from 'src/app/models/Game';
 
@@ -10,19 +9,16 @@ import Game from 'src/app/models/Game';
 })
 export class GameItemComponent {
     @Input() game: Game = {
-        title: "Título",
-        genre: "Gênero",
+        title: "Title",
+        genre: "Genre",
         releaseDate: new Date(),
-        multiplayer: false
+        multiplayer: false,
+        installed: false
     }
 
-    constructor(public datepipe: DatePipe){}
+    constructor(){}
 
-    changeColor(): string {
-        return this.game?.multiplayer? "#00ffff": "";
-    }
-
-    formatDate() {
-        return this.datepipe.transform(this.game.releaseDate, 'dd/MM/yyyy');
+    changeInstalled(): void {
+        if (this.game) this.game.installed = !this.game.installed;
     }
 }

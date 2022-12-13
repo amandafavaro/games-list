@@ -3,4 +3,5 @@ export default interface Game {
     genre: string;
     releaseDate: Date;
     multiplayer: boolean;
+    installed: boolean;
 }

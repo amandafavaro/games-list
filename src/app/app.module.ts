@@ -25,4 +25,5 @@ import { AppComponent } from './app.component';
     providers: [DatePipe],
     bootstrap: [AppComponent]
 })
+
 export class AppModule { }

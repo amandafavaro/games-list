@@ -1,0 +1,19 @@
+<form class="game-form" *ngIf="gameForm" [formGroup]="gameForm" (ngSubmit)="onSubmitForm()">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Release date (MM-DD-YYYY)</mat-label>
+        <input matInput formControlName="releaseDate">
+    </mat-form-field>
+    <div>
+        <mat-checkbox formControlName="multiplayer">Multiplayer</mat-checkbox>
+        <mat-checkbox formControlName="installed">Installed</mat-checkbox>
+    </div>
+    <button mat-stroked-button color="primary" class="submit-button" type="submit"> {{ requestType == "post" ? "Add New" : "Update" }} Game</button>  
+</form>

@@ -8,15 +8,13 @@ export class GameDirective implements OnChanges {
     @Input()
     gameDirective: boolean | undefined;
 
-    constructor(private el: ElementRef) {
-        console.log(this.gameDirective);        
-    }
+    constructor(private el: ElementRef) {}
 
     ngOnChanges(changes: SimpleChanges): void {
         if (this.gameDirective) {
             this.el.nativeElement.style.backgroundColor = 'deepskyblue';
         } else {
-            this.el.nativeElement.style.backgroundColor = 'khaki';
+            this.el.nativeElement.style.backgroundColor = 'darksalmon';
         }
     }
 }

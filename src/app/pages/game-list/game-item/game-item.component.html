@@ -11,4 +11,11 @@
         <li>Multiplayer: {{ game.multiplayer | multiplayer }}</li>
         <li>Installed: {{ game.installed | installed }}</li>
     </ul>
+    <button mat-raised-button color="accent" class="buttons" (click)="openDialog()">Update</button>
+    <button mat-raised-button color="warn" class="buttons" (click)="deleteGame()">Remove</button>
+    <ng-template #dialogTemplate>
+        <app-dialog>
+            <app-game-form requestType="update" [newGame]="game"></app-game-form>
+        </app-dialog>    
+    </ng-template>
 </mat-expansion-panel>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { GameService } from '../../services/game.service';
 
@@ -21,9 +21,9 @@ export class GameFormComponent {
 
   ngOnInit() {
     this.gameForm = new FormGroup({
-      title: new FormControl(this.newGame.title),
-      genre: new FormControl(this.newGame.genre),
-      releaseDate: new FormControl(this.newGame.releaseDate),
+      title: new FormControl(this.newGame.title, [ Validators.required ]),
+      genre: new FormControl(this.newGame.genre, [ Validators.required ]),
+      releaseDate: new FormControl(this.newGame.releaseDate, [ Validators.required ]),
       multiplayer: new FormControl(this.newGame.multiplayer),
       installed: new FormControl(this.newGame.installed)
     });
